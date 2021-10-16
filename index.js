@@ -14,6 +14,18 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 
 const employees = [];
+const HTMLpageMIDDLEelements = [];
+
+let HTMLpageENTIRE = "";
+let HTMLpageTOP = "";
+let HTMLpageMIDDLE = "";
+let HTMLpageBOTTOM = "";
+
+let cardCodeLoop = 0;
+const cardCodeLoopTags = `
+</div>
+<div class="card-deck">
+`;
 
 const getEmployeeType = () => {
   inquirer
@@ -43,7 +55,7 @@ const getEmployeeType = () => {
     });
 };
 
-// getEmployeeType();
+getEmployeeType();
 
 const addMoreEmployees = () => {
   inquirer
@@ -62,7 +74,7 @@ const addMoreEmployees = () => {
       } else if (answer.addMoreEmployees === "No") {
         console.log("Employees status: " + employees);
         console.log("El Fin");
-        writeHTML();
+        writeHTMLpageMiddle();
       }
     })
     .catch((error) => {
@@ -106,7 +118,7 @@ const getManagerInfo = () => {
         answer.email,
         answer.phone
       );
-      // console.log(manager01);
+
       employees.push(manager01);
       addMoreEmployees();
     })
@@ -209,7 +221,7 @@ const getInternInfo = () => {
     });
 };
 
-const HTMLpageTOP = `<!DOCTYPE html>
+HTMLpageTOP = `<!DOCTYPE html>
 <html>
   <head>
     <title>My Team</title>
@@ -228,10 +240,12 @@ const HTMLpageTOP = `<!DOCTYPE html>
     <header>
       <nav><h1>My Team</h1></nav>
     </header>
+    <main class="container">
+      <div class="card-deck">`;
 
-    <main class="container">`;
-
-const HTMLpageBOTTOM = `</main>
+HTMLpageBOTTOM = `
+    </div>
+  </main>
     
     
 
@@ -253,72 +267,72 @@ const HTMLpageBOTTOM = `</main>
 
 </html>`;
 
-const HTMLpageMIDDLE = `<div class="card-deck">
+// const HTMLpageMIDDLE = `<div class="card-deck">
 
-<div class="card">
-  <div class="card-header"><h4>Name</h4><h5>Role</h5></div>
-  <div class="card-body">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">ID: id</li>
-      <li class="list-group-item">Email: email</li>
-      <li class="list-group-item">Office Number: phoneNumber</li>
-    </ul>
-  </div>
-</div>
+// <div class="card">
+//   <div class="card-header"><h4>Name</h4><h5>Role</h5></div>
+//   <div class="card-body">
+//     <ul class="list-group list-group-flush">
+//       <li class="list-group-item">ID: id</li>
+//       <li class="list-group-item">Email: email</li>
+//       <li class="list-group-item">Office Number: phoneNumber</li>
+//     </ul>
+//   </div>
+// </div>
 
-<div class="card">
-  <div class="card-header"><h4>name</h4><h5>role</h5></div>
-  <div class="card-body">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">ID: id</li>
-      <li class="list-group-item">Email: email</li>
-      <li class="list-group-item">Github: github</li>
-    </ul>
-  </div>
-</div>
+// <div class="card">
+//   <div class="card-header"><h4>name</h4><h5>role</h5></div>
+//   <div class="card-body">
+//     <ul class="list-group list-group-flush">
+//       <li class="list-group-item">ID: id</li>
+//       <li class="list-group-item">Email: email</li>
+//       <li class="list-group-item">Github: github</li>
+//     </ul>
+//   </div>
+// </div>
 
-<div class="card">
-  <div class="card-header"><h4>name</h4><h5>role</h5></div>
-  <div class="card-body">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">ID: id</li>
-      <li class="list-group-item">Email: email</li>
-      <li class="list-group-item">Github: github</li>
-    </ul>
-  </div>
-</div>
+// <div class="card">
+//   <div class="card-header"><h4>name</h4><h5>role</h5></div>
+//   <div class="card-body">
+//     <ul class="list-group list-group-flush">
+//       <li class="list-group-item">ID: id</li>
+//       <li class="list-group-item">Email: email</li>
+//       <li class="list-group-item">Github: github</li>
+//     </ul>
+//   </div>
+// </div>
 
-</div>
+// </div>
 
-<div class="card-deck">
+// <div class="card-deck">
 
-<div class="card">
-  <div class="card-header"><h4>name</h4><h5>role</h5></div>
-  <div class="card-body">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">ID: id</li>
-      <li class="list-group-item">Email: email</li>
-      <li class="list-group-item">Github: github</li>
-    </ul>
-  </div>
-</div>
+// <div class="card">
+//   <div class="card-header"><h4>name</h4><h5>role</h5></div>
+//   <div class="card-body">
+//     <ul class="list-group list-group-flush">
+//       <li class="list-group-item">ID: id</li>
+//       <li class="list-group-item">Email: email</li>
+//       <li class="list-group-item">Github: github</li>
+//     </ul>
+//   </div>
+// </div>
 
-<div class="card">
-  <div class="card-header"><h4>name</h4><h5>role</h5></div>
-  <div class="card-body">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">ID: id</li>
-      <li class="list-group-item">Email: email</li>
-      <li class="list-group-item">School: school</li>
-    </ul>
-  </div>
-</div>
+// <div class="card">
+//   <div class="card-header"><h4>name</h4><h5>role</h5></div>
+//   <div class="card-body">
+//     <ul class="list-group list-group-flush">
+//       <li class="list-group-item">ID: id</li>
+//       <li class="list-group-item">Email: email</li>
+//       <li class="list-group-item">School: school</li>
+//     </ul>
+//   </div>
+// </div>
 
-</div>`;
+// </div>`;
 
-const HTMLpageENTIRE = HTMLpageTOP + HTMLpageMIDDLE + HTMLpageBOTTOM;
+// const HTMLpageENTIRE = HTMLpageTOP + HTMLpageMIDDLE + HTMLpageBOTTOM;
 
-console.log(HTMLpageENTIRE);
+// console.log(HTMLpageENTIRE);
 
 function writeToFile(fileName, data) {
   fs.writeFile(fileName, data, (err) =>
@@ -331,4 +345,56 @@ const writeHTML = () => {
   writeToFile("dist/index.html", HTML);
 };
 
-writeHTML();
+const writeHTMLpageMiddle = () => {
+  employees.forEach((element, index) => {
+    if (cardCodeLoop === 3) {
+      HTMLpageMIDDLEelements.push(cardCodeLoopTags);
+      cardCodeLoop = 0;
+    }
+    cardCodeLoop++;
+    if (element.constructor.name === "Manager") {
+      const section = `
+      <div class="card">
+        <div class="card-header"><h4>${element.name}</h4><h5>${element.constructor.name}</h5></div>
+        <div class="card-body">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">ID: ${element.id} ${index}</li>
+            <li class="list-group-item">Email: <a href="mailto:${element.email}">${element.email}</a></li>
+            <li class="list-group-item">Office Number: ${element.officeNumber}</li>
+          </ul>
+        </div>
+      </div>`;
+      HTMLpageMIDDLEelements.push(section);
+    } else if (element.constructor.name === "Engineer") {
+      const section = `
+      <div class="card">
+        <div class="card-header"><h4>${element.name}</h4><h5>${element.constructor.name}</h5></div>
+        <div class="card-body">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">ID: ${element.id}</li>
+            <li class="list-group-item">Email: <a href="mailto:${element.email}">${element.email}</a></li>
+            <li class="list-group-item">Office Number: <a href="https://github.com/${element.github}" target="_blank">${element.github}</a></li>
+          </ul>
+        </div>
+      </div>`;
+      HTMLpageMIDDLEelements.push(section);
+    } else if (element.constructor.name === "Intern") {
+      const section = `
+      <div class="card">
+        <div class="card-header"><h4>${element.name}</h4><h5>${element.constructor.name}</h5></div>
+        <div class="card-body">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">ID: ${element.id}</li>
+            <li class="list-group-item">Email: <a href="mailto:${element.email}">${element.email}</a></li>
+            <li class="list-group-item">Office Number: ${element.school}</li>
+          </ul>
+        </div>
+      </div>`;
+      HTMLpageMIDDLEelements.push(section);
+    }
+  });
+  HTMLpageMIDDLE = HTMLpageMIDDLEelements.join("");
+  HTMLpageENTIRE = HTMLpageTOP + HTMLpageMIDDLE + HTMLpageBOTTOM;
+  console.log(HTMLpageENTIRE);
+  writeHTML();
+};

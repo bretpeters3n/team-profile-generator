@@ -27,6 +27,10 @@ h1 {
   /* outline: 1px solid red; */
 }
 
+a {
+  font-size: medium;
+}
+
 h1,
 h2,
 h3,
