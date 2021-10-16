@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+header {
+  margin-bottom: 18px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: slateblue;
+  /* outline: 1px solid red; */
+}
+
+h1 {
+  color: white;
+  margin: 24px;
+  /* outline: 1px solid red; */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Merriweather;
+}
+
+.card {
+  margin: 12px;
+  box-shadow: 0 0 10px rgb(230, 230, 230);
+  max-width: 350px;
+}
+
+.card-deck {
+  margin-bottom: 18px;
+  justify-content: center;
+}
+
+.list-group-flush {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.list-group-item {
+  font-family: Rubik;
+  font-size: smaller;
+}
+
+@media screen and (max-width: 768px) {
+  /* Use flex-direction to stack the navbar, sidebar, and body */
+}
