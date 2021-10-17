@@ -358,7 +358,7 @@ const writeHTMLpageMiddle = () => {
         <div class="card-header"><h4>${element.name}</h4><h5>${element.constructor.name}</h5></div>
         <div class="card-body">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">ID: ${element.id} ${index}</li>
+            <li class="list-group-item">ID: ${element.id}</li>
             <li class="list-group-item">Email: <a href="mailto:${element.email}">${element.email}</a></li>
             <li class="list-group-item">Office Number: ${element.officeNumber}</li>
           </ul>
@@ -373,7 +373,7 @@ const writeHTMLpageMiddle = () => {
           <ul class="list-group list-group-flush">
             <li class="list-group-item">ID: ${element.id}</li>
             <li class="list-group-item">Email: <a href="mailto:${element.email}">${element.email}</a></li>
-            <li class="list-group-item">Office Number: <a href="https://github.com/${element.github}" target="_blank">${element.github}</a></li>
+            <li class="list-group-item">Github: <a href="https://github.com/${element.github}" target="_blank">${element.github}</a></li>
           </ul>
         </div>
       </div>`;
@@ -386,7 +386,7 @@ const writeHTMLpageMiddle = () => {
           <ul class="list-group list-group-flush">
             <li class="list-group-item">ID: ${element.id}</li>
             <li class="list-group-item">Email: <a href="mailto:${element.email}">${element.email}</a></li>
-            <li class="list-group-item">Office Number: ${element.school}</li>
+            <li class="list-group-item">School: ${element.school}</li>
           </ul>
         </div>
       </div>`;
