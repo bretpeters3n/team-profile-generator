@@ -79,11 +79,11 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 <!-- OVERVIEW -->
 ## Overview
-This assignment included making a node application (with Inquirer) that will assist the user in building a team profile page for their own team. The user is presented with questions to gather information about their Managers, Engineers, and Interns. Once all of the information is gathered, an 'index.html' is generated and placed in the 'dist' folder.
+This project included making a node application (with Inquirer) that will assist the user in building a team profile page for their own team. The user is presented with questions to gather information about their Managers, Engineers, and Interns. Once all of the information is gathered, an 'index.html' is generated and placed in the 'dist' folder.
 
-The assignment also entailed running tests using Jest. I set up a test for each class that we were tasked with making. Each test tests slightly different parts of the class code for each class. With some tests I am testing the class's ability to be generated. Other tests I am testing the object being created with the supplied information. I also added a test to see that overridden values, specific to some classes, were returning the correct override information.
+The project also entailed running tests using Jest. A test is set up for each class that was used in the project. Each test tests slightly different parts of the class code for each class. Some tests test the class's ability to be generated. Other tests test the object being created with the supplied information. There is also testing to see that overridden values, specific to some classes, were returning the correct override information.
 
-When the user is done adding employees, an 'index.html' is generated and placed in the 'dist' folder.
+When the user is done adding employees, an 'index.html' is generated and placed in the 'dist' folder. This HTML file is a visual representation of the team that was just created.
 
 
 <!-- BUILT WITH -->
@@ -139,24 +139,20 @@ N/A
    ```sh
    git clone https://github.com/bretpeters3n/team-profile-generator.git
    ```
-2. Lauch the project in Terminal with Node
-   ```sh
-   node index.js
-   ```
-<!--2. Install NPM packages
+2. Install NPM packages
    ```sh
    npm install
    ```
 3. Run project
    ```sh
-   npm run
-   ```-->
+   node index.js
+   ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 ## Testing
-In order to run a test, the user just run 'npm test' in the root directory of the project.
+In order to run a test, use Terminal to run 'npm test' in the root directory of the project. See <a href="#overview">Overview</a> section for more testing details.
    ```sh
    npm test
    ```
