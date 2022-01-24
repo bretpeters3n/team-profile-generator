@@ -126,12 +126,11 @@ These are instructions on setting up this project locally on your machine. To ge
 
 
 ### Prerequisites
-N/A
-<!--Make sure you have the latest installation of NPM (Node Package Manager) by following this step.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```-->
+Make sure you have the latest installation of NPM (Node Package Manager) by following this step.
+* Install/update NPM
+   ```sh
+   npm install npm@latest -g
+   ```
 
 
 ### Installation
